@@ -1,5 +1,5 @@
 # gitcd.plugin.zsh
-👷 cd dir after git clone if not exist
+👷 [oh-my-zsh plugin] cd dir after git clone if not exist
 
 ## Installation
 
@@ -37,6 +37,12 @@ Example:
 ```sh
 $ GITCD_HOME=~/myworkspace/ && gitcd https://github.com/facebook/react
 # => ~/myworkspace/github.com/facebook/react
+```
+
+## Test
+
+```sh
+zsh test.zsh
 ```
 
 ## Thanks
