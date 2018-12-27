@@ -33,6 +33,8 @@ gitcd() {
 }
 
 _giturl2dir() {
+  # 规则参考了 https://github.com/repo-utils/giturl/blob/master/lib/giturl.js
+
   url=$1
   # 删掉 @ 和之前的内容，即 `git@`` || `https://jpillora@` => ""
   url=${url#*@} # 删除左端匹配到的内容，最小匹配
@@ -40,6 +42,8 @@ _giturl2dir() {
   url=${url#*://}
   # 删掉末尾的 .git，即 .git => ""
   url=${url%.git*}
+  # 替换掉第一个冒号，即 github.com:foo/bar => github.com/foo/bar
+  url=${url/:/\/}
 
   # 用 echo 返回给调用方，而不是用 return
   echo $url
