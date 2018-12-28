@@ -3,15 +3,20 @@
 
 ## Installation
 
-1. git clone this project. And `mkdir -p ~/.oh-my-zsh/custom/plugins/gitcd` if directory not exist.
-2. run `link ./gitcd.plugin.zsh ~/.oh-my-zsh/custom/plugins/gitcd/gitcd.plugin.zsh`. Or `cp` if you want.
-3. add `gitcd` to your oh-my-zsh configuration, "plugins" section.
-4. run `source ~/.zshrc` to enable it.
 
-```sh
-# ~/.zshrc`
-plugins=(git gitcd)
-```
+1. Clone this repository into `$ZSH_CUSTOM/plugins` (by default `~/.oh-my-zsh/custom/plugins`)
+
+    ```sh
+    git clone https://github.com/viko16/gitcd.plugin.zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/gitcd
+    ```
+
+2. Add the plugin to the list of plugins for Oh My Zsh to load (inside `~/.zshrc`):
+
+    ```sh
+    plugins=(gitcd)
+    ```
+
+3. Start a new terminal session.
 
 ## Usage
 
