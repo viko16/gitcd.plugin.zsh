@@ -1,8 +1,7 @@
 # gitcd.plugin.zsh
-👷 [oh-my-zsh plugin] cd dir after git clone if not exist
+👷 [oh-my-zsh plugin] change directory after git clone if not exist
 
 ## Installation
-
 
 1. Clone this repository into `$ZSH_CUSTOM/plugins` (by default `~/.oh-my-zsh/custom/plugins`)
 
@@ -31,12 +30,12 @@ $ gitcd https://github.com/viko16/gitcd.plugin.zsh.git
 # => will git clone and cd to "~/Code/github.com/viko16/gitcd.plugin.zsh"
 ```
 
-If the repository is already cloned to local, it will automatically "cd" there.
+If the repository is already cloned to local, it will automatically "[cd](https://en.wikipedia.org/wiki/Cd_(command))" there.
 
 ## Config
 
 By default, `gitcd` will git clone under `~/Code/<host>/<path>`.
-If you want to change it, just set Environmental Variable name `GITCD_HOME`.
+If you want to change basedir, just set Environmental Variable name `GITCD_HOME`.
 
 Example:
 ```sh
@@ -47,7 +46,7 @@ $ GITCD_HOME=~/myworkspace/ && gitcd https://github.com/facebook/react
 ## Test
 
 ```sh
-zsh test.zsh
+zsh ./test.zsh
 ```
 
 ## Thanks
