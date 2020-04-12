@@ -11,7 +11,7 @@ gitcd() {
     # 忘记输入参数，就跳出
     [[ $url == "" ]] && {
         # 显示红色加粗
-        print -P "%B%F{red}Please input your repo url."
+        print -P "%B%F{red}[gitcd] Please input your repo url."
         return
     }
 
@@ -22,14 +22,14 @@ gitcd() {
     # 如果文件夹已经存在，那直接 cd 过去就好了
     [[ -d $target ]] && {
         # 显示绿色加粗
-        print -P "%B$target %F{green}already exists."
+        print -P "%B[gitcd] $target %F{green}already exists."
         cd $target
         return
     }
 
     git clone $url $target && cd $target
     # 显示绿色加粗
-    print -P "%B%F{green}Done. Have a great day!"
+    print -P "%B%F{green}[gitcd] Done. Have a great day!"
 }
 
 _giturl2dir() {
