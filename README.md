@@ -1,5 +1,6 @@
 # gitcd.plugin.zsh
-👷 [oh-my-zsh plugin] change directory after git clone if not exist
+
+👷 [oh-my-zsh plugin] git clone and change directory by a single command
 
 ## Installation
 
@@ -35,11 +36,13 @@ If the repository is already cloned to local, it will automatically "[cd](https:
 ## Config
 
 By default, `gitcd` will git clone under `~/Code/<host>/<path>`.
-If you want to change basedir, just set Environmental Variable name `GITCD_HOME`.
+If you want to change base dir, just set Environmental Variable name `GITCD_HOME`.
 
 Example:
+
 ```sh
-$ GITCD_HOME=~/myworkspace/ && gitcd https://github.com/facebook/react
+$ export GITCD_HOME=~/myworkspace/
+$ gitcd https://github.com/facebook/react
 # => ~/myworkspace/github.com/facebook/react
 ```
 
