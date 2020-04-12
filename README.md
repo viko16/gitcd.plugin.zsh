@@ -41,7 +41,7 @@ If you want to change base dir, just set Environmental Variable name `GITCD_HOME
 Example:
 
 ```sh
-$ export GITCD_HOME=~/myworkspace/
+$ export GITCD_HOME=~/myworkspace
 $ gitcd https://github.com/facebook/react
 # => ~/myworkspace/github.com/facebook/react
 ```
