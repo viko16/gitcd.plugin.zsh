@@ -45,6 +45,11 @@ _giturl2dir() {
     # 替换掉第一个冒号，即 github.com:foo/bar => github.com/foo/bar
     url=${url/:/\/}
 
+    [[ -n $GITCD_USEHOST ]] && [[ "${GITCD_USEHOST:l}" == "false" ]] && {
+        # echo $url
+        url=$(echo $url | cut -d "/" -f 2-)
+    }
+
     # 用 echo 返回给调用方，而不是用 return
     echo $url
 }

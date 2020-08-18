@@ -26,4 +26,22 @@ assert_ok $(_giturl2dir 'git@github.com:cnpm/cnpm') 'github.com/cnpm/cnpm'
 assert_ok $(_giturl2dir 'git@gitcafe.com:fengmk2/cnpm.git') 'gitcafe.com/fengmk2/cnpm'
 assert_ok $(_giturl2dir 'git@gist.github.com:3135914.git') 'gist.github.com/3135914'
 
+GITCD_USEHOST=False
+
+assert_ok $(_giturl2dir 'git://gitlab.com/edp/logger.git') 'edp/logger'
+assert_ok $(_giturl2dir 'git@gitlab.com:edp/logger.git') 'edp/logger'
+assert_ok $(_giturl2dir 'git://github.com/treygriffith/cellar.git') 'treygriffith/cellar'
+assert_ok $(_giturl2dir 'git@gitlab.xxx.com:frontend/arch/xxx.git') 'frontend/arch/xxx'
+assert_ok $(_giturl2dir 'https://github.com/banchee/tranquil.git') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'https://github.com/banchee/tranquil') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'http://github.com/banchee/tranquil.git') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'git+https://github.com/banchee/tranquil.git') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'github.com/banchee/tranquil.git') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'https://jpillora@github.com/banchee/tranquil.git') 'banchee/tranquil'
+assert_ok $(_giturl2dir 'git@github.com:cnpm/cnpm.git') 'cnpm/cnpm'
+assert_ok $(_giturl2dir 'github.com:cnpm/cnpm.git') 'cnpm/cnpm'
+assert_ok $(_giturl2dir 'git@github.com:cnpm/cnpm') 'cnpm/cnpm'
+assert_ok $(_giturl2dir 'git@gitcafe.com:fengmk2/cnpm.git') 'fengmk2/cnpm'
+assert_ok $(_giturl2dir 'git@gist.github.com:3135914.git') '3135914'
+
 print -P "%B%F{green}All Pass!"

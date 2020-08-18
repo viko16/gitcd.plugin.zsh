@@ -46,6 +46,16 @@ $ gitcd https://github.com/facebook/react
 # => ~/myworkspace/github.com/facebook/react
 ```
 
+To omit the <host> part from the local clone path, set `GITCD_USEHOST` to `false` (the value is not case sensitive).
+
+Example:
+
+```sh
+$ export GITCD_HOME=~/myworkspace GITCD_USEHOST=false
+$ gitcd https://github.com/facebook/react
+# => ~/myworkspace/facebook/react
+```
+
 ## Test
 
 ```sh
