@@ -27,7 +27,11 @@ gitcd() {
         return
     }
 
-    git clone $url $target && cd $target
+    if ! git clone $url $target; then
+        print -P "%B%F{red}[gitcd] Failed to clone the repository. Please check your URL and try again."
+        return
+    fi
+    cd $target
     # Display in green and bold
     print -P "%B%F{green}[gitcd] Done. Have a great day!"
 }
