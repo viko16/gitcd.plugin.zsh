@@ -1,48 +1,48 @@
 gitcd() {
     basedir="$HOME/Code"
-    # 如果存在全局的 GITCD_HOME，就用它
+    # If global GITCD_HOME exists, use it
     [[ -n $GITCD_HOME ]] && {
         basedir=$GITCD_HOME
     }
 
-    # 用户传入的参数
+    # User input parameter
     url=$1
 
-    # 忘记输入参数，就跳出
+    # If no parameter is provided, exit
     [[ $url == "" ]] && {
-        # 显示红色加粗
+        # Display in red and bold
         print -P "%B%F{red}[gitcd] Please input your repo url."
         return
     }
 
-    # 通过 git url 计算出路径来
+    # Calculate the directory path from the git URL
     dir=$(_giturl2dir $url)
     target=$basedir/$dir
 
-    # 如果文件夹已经存在，那直接 cd 过去就好了
+    # If the directory already exists, just cd into it
     [[ -d $target ]] && {
-        # 显示绿色加粗
+        # Display in green and bold
         print -P "%B[gitcd] $target %F{green}already exists."
         cd $target
         return
     }
 
     git clone $url $target && cd $target
-    # 显示绿色加粗
+    # Display in green and bold
     print -P "%B%F{green}[gitcd] Done. Have a great day!"
 }
 
 _giturl2dir() {
-    # 规则参考了 https://github.com/repo-utils/giturl/blob/master/lib/giturl.js
+    # Rules referenced from https://github.com/repo-utils/giturl/blob/master/lib/giturl.js
 
     url=$1
-    # 删掉 @ 和之前的内容，即 `git@`` || `https://jpillora@` => ""
-    url=${url#*@} # 删除左端匹配到的内容，最小匹配
-    # 删掉协议头，即 `git://` || `git+https://` => ""
+    # Remove `@` and everything before it, e.g., `git@` || `https://jpillora@` => ""
+    url=${url#*@} # Remove left-matched content, minimal match
+    # Remove protocol header, e.g., `git://` || `git+https://` => ""
     url=${url#*://}
-    # 删掉末尾的 .git，即 .git => ""
+    # Remove `.git` at the end, e.g., .git => ""
     url=${url%.git*}
-    # 替换掉第一个冒号，即 github.com:foo/bar => github.com/foo/bar
+    # Replace the first colon with a slash, e.g., github.com:foo/bar => github.com/foo/bar
     url=${url/:/\/}
 
     [[ -n $GITCD_USEHOST ]] && [[ "${GITCD_USEHOST:l}" == "false" ]] && {
@@ -50,6 +50,6 @@ _giturl2dir() {
         url=$(echo $url | cut -d "/" -f 2-)
     }
 
-    # 用 echo 返回给调用方，而不是用 return
+    # Return to the caller using echo instead of return
     echo $url
 }

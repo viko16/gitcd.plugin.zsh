@@ -9,7 +9,7 @@ assert_ok() {
     }
 }
 
-# 规则来自 https://github.com/repo-utils/giturl/blob/master/test/giturl.test.js
+# Rules from https://github.com/repo-utils/giturl/blob/master/test/giturl.test.js
 assert_ok $(_giturl2dir 'git://gitlab.com/edp/logger.git') 'gitlab.com/edp/logger'
 assert_ok $(_giturl2dir 'git@gitlab.com:edp/logger.git') 'gitlab.com/edp/logger'
 assert_ok $(_giturl2dir 'git://github.com/treygriffith/cellar.git') 'github.com/treygriffith/cellar'
